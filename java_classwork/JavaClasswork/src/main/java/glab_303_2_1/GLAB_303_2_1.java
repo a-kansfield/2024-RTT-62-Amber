@@ -1,6 +1,6 @@
 package glab_303_2_1;
 
-public class OperatorsDemo {
+public class GLAB_303_2_1 {
     public static void main(String args[]) {
         assignmentOperatorsDemo();
         arithmeticOperatorsDemo();

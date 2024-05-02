@@ -1,4 +1,4 @@
-package org.example;
+package slides_303_3_3;
 
 public class StringExample {
     public static void main(String args[]) {
