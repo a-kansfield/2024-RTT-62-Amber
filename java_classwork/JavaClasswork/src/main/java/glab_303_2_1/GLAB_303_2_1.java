@@ -1,4 +1,4 @@
-package com.perscholas.java_basics;
+package glab_303_2_1;
 
 public class OperatorsDemo {
     public static void main(String args[]) {
