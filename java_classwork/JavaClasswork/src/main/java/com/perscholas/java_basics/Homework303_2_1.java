@@ -1,5 +1,7 @@
 package com.perscholas.java_basics;
 
+import java.text.DecimalFormat;
+
 public class Homework303_2_1 {
     public static void main(String[] args) {
         qOne();
@@ -94,8 +96,8 @@ public class Homework303_2_1 {
         System.out.println("Part A: \n\tQuotient of ints " + x + " and " + y + ": " +q);    // Does not seem to calculate decimal correctly. Result is 1.0
 
         // Now, cast y to a double and assign it to q. Print q again.
-        double dY = y;
-        q = dY / x;
+        q = (double) y /x;
+
         System.out.println("Part B: \n\tQuotient of int " + x + " and double " + y + ": " + q);      // Is now showing correctly as 1.2
 
     }
@@ -125,6 +127,7 @@ public class Homework303_2_1 {
         // Constants
         final double SALES_TAX = 0.12;
 
+        DecimalFormat df = new DecimalFormat("0.00");
         // Products
         double coffee = 3.49;
         double tea = 2.99;
@@ -138,8 +141,8 @@ public class Homework303_2_1 {
         subtotal = (coffee * 3) + (tea * 4) + (frappe * 2);
         totalSale = subtotal + (subtotal * SALES_TAX);
         System.out.println("Subtotal: " + subtotal);
-        System.out.println("Sales Tax: " + String.format("%.2f", (subtotal * SALES_TAX)));
-        System.out.println("Total: " + String.format("%.2f",totalSale));
+        System.out.println("Sales Tax: " + df.format(subtotal * SALES_TAX));
+        System.out.println("Total: " + df.format(totalSale));
 
     }
 
