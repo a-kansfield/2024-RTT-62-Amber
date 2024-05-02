@@ -9,8 +9,8 @@ public class Homework303_2_1 {
         qFive();
         qSix();
         qSeven();
-
         qEight();
+
     }
 
     // Write a program that declares two integer variables, assigns an integer to each, and adds them together.
