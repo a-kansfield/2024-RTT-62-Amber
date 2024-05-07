@@ -13,6 +13,8 @@ public class MyRunner {
         sObj.displayShapeName();
         System.out.println(sObj instanceof Shape);
 
+
+
         // object creation of the Circle class
         System.out.println("+++++++++");
 
@@ -55,9 +57,6 @@ public class MyRunner {
         cylinderShape.setHeight(3);
         System.out.println("Area of Cylinder is " + cylinderShape.getVolume());
         System.out.println(cylinderShape);  // Run cylinderShape's toString()
-
-
-
 
     }
 }

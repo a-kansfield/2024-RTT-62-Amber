@@ -11,6 +11,8 @@ public class Main {
         System.out.println("0) Exit");
         System.out.println("1) Print the list of products");
         System.out.println("2) Order a product");
+        System.out.println("3) Checkout");
+
     }
 
     public void runCoffeeShop(){
