@@ -23,7 +23,9 @@ public class CoffeeShop {
         Product eggSandwich = new Product(7.89, "Egg Sandwich", false);
         products.add(eggSandwich);
 
-
+        ProductReader pr = new ProductReader();
+        List<Product> productsFromFile = pr.readProducts();
+        products.addAll(productsFromFile);
     }
 
     public void printProducts() {

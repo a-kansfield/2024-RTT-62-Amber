@@ -22,10 +22,6 @@ class Result {
         } catch (Exception e){
             System.out.println(e.toString());
         }
-
-
-
-
     }
 }
 
