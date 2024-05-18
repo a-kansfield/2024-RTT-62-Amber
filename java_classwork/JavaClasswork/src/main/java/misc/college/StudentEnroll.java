@@ -1,29 +1,52 @@
 package misc.college;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
+
+// Creates a student object and adds to the csv file
 public class StudentEnroll {
-    public static void main(String[] args){
-        File file = new File("src/main/java/misc/college/files/IDs.csv");
+    protected Scanner scan = new Scanner(System.in);
 
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
+    public StudentEnroll() {
 
-            IDGen idGen = new IDGen(file,
-                    new Scanner(file),
-                    new FileWriter(file, true));
+    } //Default/empty constructor
 
-            Student student = new Student(idGen.generateID(), 29, 3.8, "Amber Kansfield", "Computer Science");
-            System.out.println(student);
+    public String requestName() {
+        System.out.print("Name: ");
+        return scan.nextLine();
+    }
 
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+    public String requestMajor() {
+        System.out.print("Major: ");
+        return scan.nextLine();
+    }
 
+    public int requestAge() {
+        System.out.print("Age: ");
+        return scan.nextInt();
+    }
 
+    public void saveEntry(Student s, File file) throws Exception{
+        FileWriter writer = new FileWriter(file, true);
+        BufferedWriter bw = new BufferedWriter(writer);
+        StringJoiner sj = new StringJoiner(",");
+
+        sj.add(s.getStudentID() + "")
+                .add(s.getName())
+                .add("" + s.getAge())
+                .add(s.getMajor())
+                .add("" + s.getGpa());
+
+            writer.append("\n" + sj);
+            //writer.append.(sj.add("\n" + student.getStudentID());
+            writer.close();
     }
 }
+
+

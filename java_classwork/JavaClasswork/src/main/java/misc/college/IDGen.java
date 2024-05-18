@@ -1,7 +1,7 @@
 package misc.college;
 
 import java.io.File;
-import java.io.FileWriter;
+//import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class IDGen {
                                                 //endregion
     private File                file;
     private Scanner             scan;
-    private FileWriter          writer;
+    //private FileWriter          writer;
 
     //region Constructors
     //  Special method used when objects are created/initialized.
@@ -28,10 +28,10 @@ public class IDGen {
     //              3. No return type.
     //              4. Can't be called by itself. (It's run automatically when an object is created.)
     //endregion
-    public IDGen(File file, Scanner scan, FileWriter writer) {
+    public IDGen(File file, Scanner scan) {
         this.file   = file;
         this.scan   = scan;
-        this.writer = writer;
+        //this.writer = writer;
     } // Complete constructor with all variables
 
     // Single callable method in which all other methods are run.
@@ -50,9 +50,10 @@ public class IDGen {
             count++;
         }
 
-        writeIDToFile(id);      // Save ID to cvs file
+        //writeIDToFile(id);      // Save ID to cvs file
         return id;              // Return ID
     }
+
     // Generates a random 8-digit number and returns it as int
     private int generateNum() {
         StringBuilder idString = new StringBuilder();
@@ -78,12 +79,17 @@ public class IDGen {
         Scanner scan    = getScan();
         boolean result  = true;
 
+        String header = scan.nextLine();                // Eats the header line
+        System.out.println(header);
         while (scan.hasNextLine()) {
-            int currentID = scan.nextInt();
+            int currentID = Integer.parseInt(scan.next());
             if (currentID == id){
                 result = false;
             }
+            scan.nextLine();
         }
+
+        scan.close();
 
         return result;
 
@@ -91,10 +97,10 @@ public class IDGen {
 
     //Writes the ID to the given csv file.
     // May not be needed in the future, as I shift the csv to encompass all Student data.
-    private void writeIDToFile(int id) throws Exception {
-        getWriter().append("\n" + id);
-        writer.close();
-    }
+//    private void writeIDToFile(int id) throws Exception {
+//        getWriter().append("\n" + id);
+//        writer.close();
+//    }
 
 
 
@@ -106,8 +112,8 @@ public class IDGen {
     public Scanner getScan() {
         return scan;
     }
-
-    public FileWriter getWriter() {
-        return writer;
-    }
+//
+//    public FileWriter getWriter() {
+//        return writer;
+//    }
 }
