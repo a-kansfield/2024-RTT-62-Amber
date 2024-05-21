@@ -1,11 +1,10 @@
 package misc.college;
 
 import java.io.File;
-//import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
 
-// Randomly generates an 8 digit ID, checks a csv file to ensure it does not already exist.
+// Randomly generates an 8-digit ID, checks a csv file to ensure it does not already exist.
 // If the number is unique, append the ID to the file and return the ID number
 public class IDGen {
     static private final int    ID_LENGTH = 8;     //region Constants
@@ -17,7 +16,6 @@ public class IDGen {
                                                 //endregion
     private File                file;
     private Scanner             scan;
-    //private FileWriter          writer;
 
     //region Constructors
     //  Special method used when objects are created/initialized.
@@ -31,7 +29,6 @@ public class IDGen {
     public IDGen(File file, Scanner scan) {
         this.file   = file;
         this.scan   = scan;
-        //this.writer = writer;
     } // Complete constructor with all variables
 
     // Single callable method in which all other methods are run.
@@ -49,8 +46,6 @@ public class IDGen {
             }
             count++;
         }
-
-        //writeIDToFile(id);      // Save ID to cvs file
         return id;              // Return ID
     }
 
