@@ -2,11 +2,12 @@
 -- Question 0.1
 -- I want to see the count of the number of products in each product line
 SELECT 
-	productline_id, 
-    COUNT(product_name)
-FROM products
-GROUP BY productline_id
-ORDER BY productline_id;
+	productline.id,
+	COUNT(product_name)
+FROM products, productlines
+WHERE productlines.id = products.productline_id
+GROUP BY product_line
+ORDER BY product_line;
 
 -- question 0.2
 -- I want to see a list of employees and all of the customers for that employee.   Employee name will be duplicated in the result set.   I want to see the employee first and last name
@@ -36,6 +37,8 @@ SELECT e.job_title, COUNT(e.job_title) AS NumberInPosition
 FROM employees e
 GROUP BY e.job_title
 ORDER BY COUNT(e.job_title) DESC;
+
+
 -- question 0.5
 -- I want to see a list of all payments each customer has made.  Order the list by custoemr name ascending, then by the payment amount descending
 SELECT c.customer_name, p.*
@@ -46,19 +49,19 @@ ORDER BY c.customer_name, p.amount DESC;
 -- I want to see a list of products that have never been sold.   use ... not in ( select product_id from order_details ) in your where clause
 SELECT * 
 FROM products 
-WHERE id NOT IN 
+WHERE id NOT IN
 	(SELECT product_id 
-    FROM orderdetails );
-
+    FROM orderdetails);
 
 -- question 0.7
 -- are there any customers that have never made an order
 
-SELECT c.*
+SELECT DISTINCT c.customer_name
 FROM customers c
 WHERE id NOT IN
 	(SELECT customer_id
-    FROM orders);
+    FROM orders)
+ORDER BY customer_name;
 
 -- Question 1
 -- How many customer are handled by each office.  I want to see the office name and the count of the number of customers in that office.
@@ -87,8 +90,10 @@ WHERE c.id = o.customer_id
 	AND o.id = od.order_id
 	AND p.id = od.product_id
     AND c.state IS NOT NULL
+    AND c.country = "USA"
 GROUP BY c.id, c.state
-ORDER BY c.state ASC, profit_margin DESC;
+ORDER BY c.state ASC, profit_margin DESC
+LIMIT 5;
 
 -- Question 3
 --  I want to see the top 5 salesmen in the company based on the total amount sold
@@ -98,6 +103,7 @@ WHERE e.id = c.sales_rep_employee_id
 	AND c.id = o.customer_id
     AND o.id = od.order_id
 GROUP BY e.id
+ORDER BY "Highest Sales"
 LIMIT 5;
 -- Question 4
 -- I want to see the top 5 salesmen based on overall profit (margin)
