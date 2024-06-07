@@ -19,6 +19,7 @@ public class Order {
     @Column(name = "id")
     private Integer id;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "customer_id", nullable = true)
     private Customer customer;

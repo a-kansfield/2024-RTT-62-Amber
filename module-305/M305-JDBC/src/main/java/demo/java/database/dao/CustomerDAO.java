@@ -58,6 +58,7 @@ public class CustomerDAO {
 
         List<Customer> result = query.getResultList();
 
+        session.close();
         return result;
     }
 
@@ -78,11 +79,11 @@ public class CustomerDAO {
 
         List<Customer> result = query.getResultList();
 
+        session.close();
         return result;
     }
 
     public Customer findByID(Integer id) {
-
         Session session = factory.openSession();
 
         String hql = "SELECT c FROM Customer c WHERE c.id = :id";

@@ -50,6 +50,27 @@ public class OrderDAO {
         query.setParameter("customerID", customerID);
 
         List<Order> result = query.getResultList();
+
+        session.close();
         return result;
+    }
+
+    public Order findByOrderID(Integer orderID) {
+        Session session = factory.openSession();
+
+        String hql = "SELECT o FROM Order o WHERE o.id = :orderID";         // Set up HQL [SQL Equivalent: SELECT * FROM order WHERE order.id = ?]
+        TypedQuery<Order> query = session.createQuery(hql, Order.class);    // Format a query using the HQL string and a pointer to the order class
+        query.setParameter("orderID", orderID);                           // Set parameters using query
+
+        // get single result - remember to do try catch to catch potential null values
+        try {
+            Order result = query.getSingleResult();
+            return result;
+        } catch (NoResultException e) {
+            System.out.println("No order with order id " + orderID + " found.");
+            return null;
+        } finally {
+            session.close();    // Important to close sessions once you're done or you will explode. :(
+        }
     }
 }
