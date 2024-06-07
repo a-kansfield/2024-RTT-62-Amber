@@ -1,5 +1,6 @@
 package demo.java.database.dao;
 import demo.java.database.entity.Employee;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,7 +8,6 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 public class EmployeeDAO {
-
 
     public void insert( Employee employee) {
         // these 2 lines of code prepare the hibernate session for use
@@ -19,7 +19,7 @@ public class EmployeeDAO {
         session.getTransaction().commit();  // commit our transaction
         session.close();                    // cleanup the session
     }
-    public void update( Employee employee) {
+    public void update(Employee employee) {
         // these 2 lines of code prepare the hibernate session for use
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
@@ -47,7 +47,7 @@ public class EmployeeDAO {
 
         // JPA Query - the syntax is slightly different than regular SQL
         // SQL - "select * from employees e where e.firstname = ?"
-        String hql = "SELECT e FROM Employee e where e.id = :id";
+        String hql = "SELECT e FROM Employee e WHERE e.id = :id";
 
         // this typed query is how hibernate knows what kind of object of fill up with the query results
         TypedQuery<Employee> query = session.createQuery(hql,Employee.class);
@@ -62,7 +62,7 @@ public class EmployeeDAO {
         try {
             Employee result = query.getSingleResult();
             return result;
-        } catch (Exception e) {
+        } catch (NoResultException e) {
             return null;
         } finally {
             // finally we close the hibernate session so it can release the resources its holding

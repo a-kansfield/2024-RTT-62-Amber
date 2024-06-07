@@ -3,6 +3,8 @@ package demo.java.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
@@ -16,6 +18,14 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // this telling hibernate that the PK is auto increment
     @Column(name = "id")
     private Integer id;
+
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "sales_rep_employee_id", nullable = true)
+    private Employee employee;
+
+    @Column(name = "sales_rep_employee_id", insertable = false, updatable = false)
+    private Integer salesRepEmployeeID;
 
     @Column(name = "customer_name")
     private String customerName;
@@ -47,11 +57,14 @@ public class Customer {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "sales_rep_employee_id")
-    private Integer salesRepEmployeeID;
-
     @Column(name = "credit_limit", columnDefinition = "DECIMAL")
     private Double creditLimit;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<Order> orders;
+
 
     // Minimal constructor for adding to DB
     public Customer(String customerName, String contactFirstName, String contactLastName,

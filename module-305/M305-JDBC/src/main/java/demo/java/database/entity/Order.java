@@ -19,7 +19,11 @@ public class Order {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "customer_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "customer_id", nullable = true)
+    private Customer customer;
+
+    @Column(name = "customer_id", insertable = false, updatable = false)
     private Integer customerID;
 
     @Column(name = "order_date", columnDefinition = "DATE")
