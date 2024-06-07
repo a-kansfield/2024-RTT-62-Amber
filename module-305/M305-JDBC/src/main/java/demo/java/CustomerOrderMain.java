@@ -30,11 +30,17 @@ public class CustomerOrderMain {
 
     // Prints a list of orders
     public void printOrders(List<Order> orders) {
-        System.out.println("ID | Customer Name | Customer ID");
-        System.out.println("===========================================");
-        for (Order order : orders) {
-            System.out.println(order.getId() + " | " + order.getCustomer() + " | " + order.getCustomerID());
+        if (orders.size() >= 1) {
+            System.out.println("\nOrder Status for Customer -- " + orders.get(0).getCustomer().getCustomerName() + "\n");
+            System.out.println("ID | Order Date | Status | Customer Name | Customer ID");
+            System.out.println("===========================================");
+            for (Order order : orders) {
+                System.out.println(order.getId() + " | " + order.getOrderDate() + " | " + order.getStatus() + " | " + order.getCustomer().getCustomerName() + " | " + order.getCustomerID());
+            }
+        } else {
+            System.out.println("No orders associated with given Customer ID");
         }
+
     }
 
     // Handles prompting the user and validating result
