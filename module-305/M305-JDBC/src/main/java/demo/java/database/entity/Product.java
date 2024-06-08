@@ -3,6 +3,8 @@ package demo.java.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Entity
@@ -16,6 +18,11 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
     private Integer id;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY,
+        cascade = CascadeType.ALL)
+    private List<OrderDetails> orderDetails;
 
     @Column (name = "product_code")
     private String productCode;

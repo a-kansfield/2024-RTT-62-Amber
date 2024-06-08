@@ -9,6 +9,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Table(name = "orderdetails")
 public class OrderDetails {
 
@@ -17,11 +18,21 @@ public class OrderDetails {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "order_id")
-    private Integer orderID;
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "product_id", nullable = true)
+    private Product product;
 
-    @Column(name = "product_id")
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "order_id", nullable = true)
+    private Order order;
+
+    @Column(name = "product_id", insertable = false, updatable = false)
     private Integer productID;
+
+    @Column(name = "order_id", insertable = false, updatable = false)
+    private Integer orderID;
 
     @Column(name = "quantity_ordered")
     private Integer quantityOrdered;

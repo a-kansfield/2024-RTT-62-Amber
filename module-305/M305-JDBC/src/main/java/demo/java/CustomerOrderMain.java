@@ -1,12 +1,7 @@
 package demo.java;
 
 import demo.java.database.dao.OrderDAO;
-import demo.java.database.dao.CustomerDAO;
 import demo.java.database.entity.Order;
-import demo.java.database.entity.Customer;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 import java.util.Scanner;
@@ -37,9 +32,6 @@ public class CustomerOrderMain {
         orderDAO.update(order);
         System.out.println("Updated Order");
         printSingleOrder(order);
-
-
-
 
     }
 
