@@ -1,7 +1,4 @@
-package org.example.coffeeshop;
-
-import java.util.ArrayList;
-import java.util.List;
+package demo.java.coffeeshop;
 
 public class Main {
 

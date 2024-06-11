@@ -1,9 +1,8 @@
 package demo.java;
 
-import demo.java.database.entity.Customer;
 import demo.java.database.dao.CustomerDAO;
+import demo.java.database.entity.Customer;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class CustomerQueryDemo {
@@ -38,8 +37,6 @@ public class CustomerQueryDemo {
 
         //Then save the customer that you just modified to the database
         customerDAO.update(customer);
-
-
 
         //System.out.println(customer);
 

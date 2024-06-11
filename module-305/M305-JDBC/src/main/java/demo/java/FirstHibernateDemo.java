@@ -3,8 +3,6 @@ package demo.java;
 import demo.java.database.dao.EmployeeDAO;
 import demo.java.database.entity.Employee;
 
-import java.util.List;
-
 public class FirstHibernateDemo {
 
     public static void main(String[] args) {

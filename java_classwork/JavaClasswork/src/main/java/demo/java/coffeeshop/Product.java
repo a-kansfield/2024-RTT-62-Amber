@@ -1,4 +1,4 @@
-package org.example.coffeeshop;
+package demo.java.coffeeshop;
 
 public class Product {
 

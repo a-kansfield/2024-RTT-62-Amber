@@ -27,6 +27,7 @@
         <property name="hibernate.enable_lazy_load_no_trans">true</property>
         <!-- this tells hibernate which entities you have in your project -->
         <!-- each entity needs to have a line here in the config file -->
+
         <mapping class="demo.java.database.entity.Employee"/>
         <mapping class="demo.java.database.entity.Customer"/>
         <mapping class="demo.java.database.entity.Order"/>

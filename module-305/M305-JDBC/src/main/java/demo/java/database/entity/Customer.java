@@ -8,9 +8,10 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@ToString
+//@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Table(name = "customers")
 public class Customer {
 

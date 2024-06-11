@@ -53,4 +53,14 @@ public class Employee {
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY,
         cascade = CascadeType.ALL)
     private List<Customer> customers;
+
+    //Minimum Mandatory Info Constructor
+    public Employee (Integer officeId, String firstname, String lastname, String extension, String email, String jobTitle) {
+        this.officeId = officeId;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.extension = extension;
+        this.email = email;
+        this.jobTitle = jobTitle;
+    }
 }

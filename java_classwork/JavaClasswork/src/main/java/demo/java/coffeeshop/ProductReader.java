@@ -1,4 +1,4 @@
-package org.example.coffeeshop;
+package demo.java.coffeeshop;
 
 import java.io.BufferedReader;
 import java.io.File;

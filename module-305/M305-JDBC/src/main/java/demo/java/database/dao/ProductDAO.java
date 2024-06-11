@@ -1,7 +1,6 @@
 package demo.java.database.dao;
 
 
-import demo.java.database.entity.Employee;
 import demo.java.database.entity.Product;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;

@@ -1,7 +1,7 @@
 package demo.java;
 
-import demo.java.database.dao.OrderDAO;
 import demo.java.database.entity.Order;
+import demo.java.database.dao.OrderDAO;
 
 import java.util.List;
 import java.util.Scanner;

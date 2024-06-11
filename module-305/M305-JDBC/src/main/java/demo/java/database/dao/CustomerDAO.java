@@ -3,7 +3,6 @@ package demo.java.database.dao;
 import demo.java.database.entity.Customer;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,7 +11,6 @@ import java.util.List;
 
 public class CustomerDAO {
     private SessionFactory factory = new Configuration().configure().buildSessionFactory();
-
 
     public void insert(Customer customer){
         Session session = factory.openSession();
