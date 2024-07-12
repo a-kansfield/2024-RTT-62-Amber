@@ -1,0 +1,178 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+label {
+    margin-right: 20px;
+}
+
+body {
+	background-color: #181417;
+}
+
+
+.body-container{
+
+}
+header{
+	font-size: 3rem;
+	font-family: Raleway, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-weight: 200;
+	letter-spacing: 2px;
+	padding: 1rem;
+	border-bottom: 3px solid #4e3648;
+	background-color: #2f242c;
+	color: #ded7cf
+}
+h1 span {
+	color: #e69f4e;
+}
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1.5rem;
+	margin: 2rem;
+	box-shadow: 1px 1px 2px 1px #211f20;
+	background-color: #f1f2f3;
+	width: 230px;
+	height: 320px;
+	border-radius: 3px;
+}
+.form-container form {
+	padding-left: 2rem;
+	padding-right: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-container h2{
+	margin-bottom: 1.5rem;
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+.field-group {
+	font-size: .9rem;
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+}
+
+.field-group input {
+	margin-top: .2rem;
+	line-height: 1.2rem;
+	border: 1px solid #130758;
+	background-color: #e2ebec;
+	border-radius: 2px;
+}
+
+.form-container form button {
+	border-radius: 3px;
+	border: none;
+	padding: .2rem;
+	margin: 1rem;
+	margin-left: 2.3rem;
+	margin-right: 2.3rem;
+	justify-self: center;
+	background-color: none;
+	font-weight: 600;
+	background-color: #b41c1c;
+	color: #eaecd6;
+	letter-spacing: 1px;
+}
+
+#btn-login{
+	margin: 20%;
+	margin-top: 65px;
+
+}
+
+.form-container form button:hover {
+	background-color: #bc724d;
+}
+main {
+	font-family: Raleway, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin-top: 6rem;
+	margin-left: 8rem;
+	margin-right: 8rem;
+}
+
+
+img {
+	width: 4rem;
+	margin-top: -20px;
+	margin-bottom: 1rem;
+}
+@media (max-width: 670px){
+	main{
+		margin-left: 15%;
+		display: flex;
+		align-content: center;
+		flex-direction: column;
+		
+		justify-content: center;
+	}
+}
+@media (min-width: 1000px) {
+	main{
+		margin-left: 15rem;
+		margin-right: 15rem;
+	}
+}
+@media (min-width: 1200px) {
+	main {
+		margin-left: 20rem;
+		margin-right: 20rem;
+	}
+}

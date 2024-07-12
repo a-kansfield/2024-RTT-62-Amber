@@ -1,0 +1,65 @@
+
+html{
+    margin-top: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+body{
+    margin: 0;
+}
+h1{
+    font-family: "Playwrite PL", cursive;
+    margin-top: 0;
+    color: #7ba4ca;
+}
+a {
+    letter-spacing: .1em;
+    text-decoration: none;
+    font-weight: 400;
+    color: #49b6ff;
+    border-bottom: 1px solid #49b6ff;
+}
+a:hover {
+    color: #8bd0ff;
+    border-bottom: 1px solid #8bd0ff;
+}
+p {
+    line-height: 1.8em;
+}
+.headerGrouping {
+    margin-bottom: 4rem;
+    
+    background-color: #003249;
+}
+
+.center-text {
+    text-align: center;
+}
+.mainColumn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+.content {
+    
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+#hobbies {
+    font-size: 1.5rem;
+    justify-self: center;
+}
+li {
+    list-style-type: square
+}
+#lunaImg {
+    width: 300px;
+    margin-right: 30px;
+}
+
+@media (max-width: 700px) {
+    .mainColumn {
+        flex-direction: column;
+    }
+}

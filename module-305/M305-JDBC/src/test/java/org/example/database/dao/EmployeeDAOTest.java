@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class EmployeeDAOTest {
             employeeDAO.delete(employee);
         }
     }
+
     @AfterAll
     public static void afterAll() {
         List<Employee> employees = employeeDAO.findByFirstName("Chilchuck");
@@ -28,6 +31,7 @@ public class EmployeeDAOTest {
             employeeDAO.delete(employee);
         }
     }
+
     @Test
     public void findByIdTest() {
         // given
@@ -54,21 +58,23 @@ public class EmployeeDAOTest {
         Assertions.assertNull(employee);
     }
 
-    @Test
-    public void findByFirstNameTest() {
+    @ParameterizedTest
+    @CsvSource(
+            {
+                    "Leslie",
+                    "Tom"
+            }
+    )
+    public void findByFirstNameTest(String firstName) {
         // given
-        String firstName = "Gary";
 
         // when
         List<Employee> employees = employeeDAO.findByFirstName(firstName);
 
         // then
-        Assertions.assertNotNull(employees);
-            //I know that even if a second employee with the first name "Gary" is input, the first instance in the list will be the CEO - Gary Larson with an ID of 1002
-        Assertions.assertEquals(1002, employees.get(0).getId());
-            // I can't future-proof every Gary, I can at least check that every employee in the list does actually have the first name Gary.
+       Assertions.assertTrue(employees.size() > 0);
         for (Employee employee : employees) {
-            Assertions.assertEquals("Gary", employee.getFirstname());
+            Assertions.assertEquals(firstName, employee.getFirstname());
         }
     }
 

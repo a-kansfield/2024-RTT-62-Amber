@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // this is a comment in Javascript
+        let a = "Hello world";
+        console.log(a.substring(4,5));
+
+        // what is z going to print
+        let x = 5;
+        let y = 6;
+        let z = ("x*y");
+        let b = x * y;
+
+        console.log(z);
+        //will print "x*y"
+
+        // the difference between == and ===
+        // not only is it a KBA question but it is important to know also
+        // === compares not only the value but the data type as well
+        console.log("1" == 1) // true
+        console.log("1" == "1") // true
+        console.log(1 == 1) // true
+        console.log("1" === 1) // false
+        console.log(1 === 1) // true
+        
+        // one difference between lat and var is you can only define something
+        // using let once in the same code block, with car it will allow more than once
+        let abc = "123";
+        //let abc = "abc";
+
+        //var will allow more than once in the same code block, also
+        // this is bad practice to do this
+        var xyz = "123";
+        var xyz = "xyz";
+        console.log(xyz);
+
+        // how to make an alert box in JS
+        //alert("some message to popup");
+    </script>
+</body>
+</html>
