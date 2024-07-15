@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,34 +32,18 @@ public class IndexController {
         // if the id parameter is not present on the URL then the incoming id will be null
         ModelAndView response = new ModelAndView("index");
 
-        Product product = productDAO.findById(id);
-        response.addObject("productKey", product);
-
         // by default the logging level is set to info so the debug message will not be printed in the terminal
-        log.debug("Debug level");
-        log.info("Info level");
-        log.warn("Warn level");
-        log.error("Error level");
-
-        response.addObject("message", "Hello World!");
+//        log.debug("Debug level");
+//        log.info("Info level");
+//        log.warn("Warn level");
+//        log.error("Error level");
 
         return response;
     }
 
-    @GetMapping("/{id}")
-    public ModelAndView indexPathVar(@PathVariable Integer id) {
-
-        // if the id parameter is not present on the URL then the incoming id will be null
-        ModelAndView response = new ModelAndView("index");
-
-        Product product = productDAO.findById(id);
-        response.addObject("productKey", product);
 
 
-        response.addObject("message", "Hello World!");
 
-        return response;
-    }
 
     @GetMapping("/another-page")
     public ModelAndView canBeAnyFunctionNameYouWant() {
@@ -66,27 +51,13 @@ public class IndexController {
         return response;
     }
 
-    @GetMapping("/product-search")
-    public ModelAndView search(@RequestParam(required = false) String search) {
-        ModelAndView response = new ModelAndView("product-search");
 
-        log.debug("The user searched for the term" + search);
-        response.addObject("search", search);
 
-        List<Product> products = productDAO.findByNameOrCode(search);
-        response.addObject("products", products);
-        return response;
-    }
 
-    @GetMapping("/employee-search")
-    public ModelAndView employeeSearch(@RequestParam(required = false) String search) {
-        ModelAndView response = new ModelAndView("employee-search");
 
-        response.addObject("search", search);
-        List<Employee> employees = employeeDAO.findByNameOrCode(search);
-        response.addObject("employees", employees);
-        return response;
-    }
+
+
+
     // I am naming the mapping, function, and viewName identically.
     // I don't NEED to do this, but am for consistency's sake.
     @GetMapping("/homework")
@@ -95,5 +66,20 @@ public class IndexController {
         response.addObject("homeworkMessage", homeworkVar);
         return response;
     }
+
+    // Toggle between employee and product searches
+    @GetMapping("/combo-search")
+    public ModelAndView comboSearch(@RequestParam(required=false) String search, String radio) {
+        ModelAndView response = new ModelAndView("combo-search");
+        return response;
+    }
+
+    //combo-search with path variables
+    @GetMapping("/{radio}/{id}")
+    public ModelAndView comboSearch(){
+        ModelAndView response = new ModelAndView("combo-search");
+        return response;
+    }
+
 
 }

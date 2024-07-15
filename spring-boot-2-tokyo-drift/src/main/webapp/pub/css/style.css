@@ -1,0 +1,30 @@
+.nav-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.navbar .btn {
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+.home-banner-text h1{
+    font-size: 5rem;
+    padding: 2rem;
+}
+.home-banner {
+    background-color: #d98585;
+}
+.banner {
+
+}
+.info-table a {
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    color: #135eb2;
+    border-bottom: 1px solid rgba(19, 94, 178, 0.4);
+}
+.info-table a:hover {
+    color: #179fd9;
+    border-bottom: 1px solid #179fd9;
+    transition: .2s;
+}

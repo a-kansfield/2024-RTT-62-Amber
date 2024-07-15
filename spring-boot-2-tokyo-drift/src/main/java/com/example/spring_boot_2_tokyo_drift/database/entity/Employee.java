@@ -3,6 +3,8 @@ package com.example.spring_boot_2_tokyo_drift.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -15,7 +17,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private Integer id;
 
     @Column(name="office_id")
@@ -41,4 +43,9 @@ public class Employee {
 
     @Column(name = "vacation_hours")
     private Integer vacationHours;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<Customer> customers;
 }
