@@ -2,6 +2,7 @@ package com.example.spring_boot_2_tokyo_drift.controller;
 import com.example.spring_boot_2_tokyo_drift.database.dao.EmployeeDAO;
 import com.example.spring_boot_2_tokyo_drift.database.entity.Employee;
 import com.example.spring_boot_2_tokyo_drift.form.CreateEmployeeFormBean;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,7 @@ public class EmployeeController {
         ModelAndView response = new ModelAndView("employee/create");
         List<Employee> employees = employeeDAO.findAll();
         response.addObject("reportsToEmployees", employees);
+
         return response;
 
     }

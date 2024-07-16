@@ -28,3 +28,12 @@
     border-bottom: 1px solid #179fd9;
     transition: .2s;
 }
+
+/*Note: I try to use margin first to create empty space whenever possible,
+    But in this case I believe margin interferes with bootstrap*/
+.createForm {
+    padding: 2rem;
+    padding-top: 5rem;
+    max-width: calc(700px + 10%);
+
+}

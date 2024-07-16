@@ -15,4 +15,9 @@ public interface EmployeeDAO extends JpaRepository<Employee, Long> {
             +   "LIKE CONCAT('%', :name, '%')")
     List<Employee> findByNameOrCode(String name);
 
+    @Query("SELECT DISTINCT e.extension FROM Employee e")
+    List<String> getExtensions();
+
+    @Query("SELECT DISTINCT e.jobTitle FROM Employee e")
+    List<String> getJobTitles();
 }
